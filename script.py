@@ -5,5 +5,10 @@ class Car:
     self.year = year
     self.rental_price_per_day = rental_price_per_day
 
+  def display_info(self):
+    print(self.brand, self.model, self.year, self.rental_price_per_day)
+
 car1 = Car("mercedes", "e320", 2003, 25)
 car2 = Car("bmw", "x5", 2013, 50)
+car1.display_info()
+car2.display_info()
