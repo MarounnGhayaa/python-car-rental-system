@@ -44,3 +44,6 @@ while action != "no":
   vehicle = Vehicle(brand, model, year, rental_price_per_day)
   vehicles_list.append(vehicle)
   action = input("Create a new vehicle (yes/no): ").lower()
+
+for vehicle in vehicles_list:
+  vehicle.display_info()
