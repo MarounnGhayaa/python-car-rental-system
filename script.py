@@ -45,6 +45,7 @@ while option != 5:
     rental_price_per_day = float(input("Enter the rental price per day: "))
     days = int(input("Enter the number of rental days: "))
     vehicle = Vehicle(brand, model, year, rental_price_per_day)
+    vehicle.days = days
     vehicles_list.append(vehicle)
 
 
@@ -57,6 +58,7 @@ while option != 5:
     days = int(input("Enter the number of rental days: "))
     vehicle = Vehicle(brand, model, year, rental_price_per_day)
     vehicle.capacity = capacity
+    vehicle.days = days
     vehicles_list.append(vehicle)
 
 
@@ -69,6 +71,7 @@ while option != 5:
     days = int(input("Enter the number of rental days: "))
     vehicle = Vehicle(brand, model, year, rental_price_per_day)
     vehicle.engine = engine
+    vehicle.days = days
     vehicles_list.append(vehicle)
 
 
@@ -83,6 +86,7 @@ while option != 5:
     vehicle = Vehicle(brand, model, year, rental_price_per_day)
     vehicle.capacity = capacity
     vehicle.engine = engine
+    vehicle.days = days
     vehicles_list.append(vehicle)
 
 
