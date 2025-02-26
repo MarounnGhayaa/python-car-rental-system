@@ -8,6 +8,7 @@ class Vehicle:
     self.rental_price_per_day = rental_price_per_day
     self.capacity = capacity
     self.engine = engine
+    self.days = days
 
   def display_info(self):
     if self.capacity == 0 and self.engine == "":
@@ -42,6 +43,7 @@ while option != 5:
     model = input("Enter the model: ")
     year = int(input("Enter the year: "))
     rental_price_per_day = float(input("Enter the rental price per day: "))
+    days = int(input("Enter the number of rental days: "))
     vehicle = Vehicle(brand, model, year, rental_price_per_day)
     vehicles_list.append(vehicle)
 
@@ -52,6 +54,7 @@ while option != 5:
     year = int(input("Enter the year: "))
     capacity = int(input("Enter the number of seats: "))
     rental_price_per_day = float(input("Enter the rental price per day: "))
+    days = int(input("Enter the number of rental days: "))
     vehicle = Vehicle(brand, model, year, rental_price_per_day)
     vehicle.capacity = capacity
     vehicles_list.append(vehicle)
@@ -63,6 +66,7 @@ while option != 5:
     year = int(input("Enter the year: "))
     engine = input("Enter the engine's power: ")
     rental_price_per_day = float(input("Enter the rental price per day: "))
+    days = int(input("Enter the number of rental days: "))
     vehicle = Vehicle(brand, model, year, rental_price_per_day)
     vehicle.engine = engine
     vehicles_list.append(vehicle)
@@ -75,6 +79,7 @@ while option != 5:
     capacity = int(input("Enter the number of seats: "))
     engine = input("Enter the engine's power: ")
     rental_price_per_day = float(input("Enter the rental price per day: "))
+    days = int(input("Enter the number of rental days: "))
     vehicle = Vehicle(brand, model, year, rental_price_per_day)
     vehicle.capacity = capacity
     vehicle.engine = engine
@@ -83,3 +88,6 @@ while option != 5:
 
 for vehicle in vehicles_list:
   vehicle.display_info()
+
+for vehicle in vehicles_list:
+  vehicle.calculate_rental_cost(vehicle.days)
