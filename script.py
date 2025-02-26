@@ -31,3 +31,16 @@ vehicle1.display_info()
 vehicle2.display_info()
 vehicle1.calculate_rental_cost(3)
 vehicle2.calculate_rental_cost(5)
+
+vehicles_list= [vehicle1, vehicle2]
+
+action = input("Create a new vehicle (yes/no): ").lower()
+
+while action != "no":
+  brand = input("Enter the brand: ")
+  model = input("Enter the model: ")
+  year = int(input("Enter the year: "))
+  rental_price_per_day = float(input("Enter the rental price per day: "))
+  vehicle = Vehicle(brand, model, year, rental_price_per_day)
+  vehicles_list.append(vehicle)
+  action = input("Create a new vehicle (yes/no): ").lower()
