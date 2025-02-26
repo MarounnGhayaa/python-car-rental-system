@@ -23,16 +23,7 @@ class Vehicle:
     cost = self.rental_price_per_day * days
     print(f"Rental cost for {self.model} for {days} days: ${cost}")
 
-vehicle1 = Vehicle("Car", "Toyota Corolla", 2020, 50)
-vehicle2 = Vehicle("Bike", "Yamaha R1", 2019, 30)
-vehicle1.capacity = 5
-vehicle2.engine = "998cc"
-vehicle1.display_info()
-vehicle2.display_info()
-vehicle1.calculate_rental_cost(3)
-vehicle2.calculate_rental_cost(5)
-
-vehicles_list= [vehicle1, vehicle2]
+vehicles_list= []
 
 action = input("Create a new vehicle (yes/no): ").lower()
 
