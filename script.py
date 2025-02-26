@@ -1,19 +1,32 @@
 class Vehicle:
- def __init__(self, brand, model, year, rental_price_per_day):
+  def __init__(self, brand, model, year, rental_price_per_day):
+    capacity = 0
+    engine = ""
     self.brand = brand
     self.model = model
     self.year = year
     self.rental_price_per_day = rental_price_per_day
+    self.capacity = capacity
+    self.engine = engine
 
- def display_info(self):
-   print(f"{self.brand}: {self.model}, Year: {self.year}, Rental Price: ${self.rental_price_per_day}/day")
-
- def calculate_rental_cost(self, days):
-   cost = self.rental_price_per_day * days
-   print(f"Rental cost for {self.brand} {self.model} for {days} days: ${cost}")
+  def display_info(self):
+    if self.capacity == 0 and self.engine == "":
+      print(f"{self.brand}: {self.model}, Year: {self.year}, Rental Price: ${self.rental_price_per_day}/day")
+    elif(self.capacity != 0 and self.engine == ""):
+      print(f"{self.brand}: {self.model}, Year: {self.year}, Seats: {self.capacity}, Rental Price: ${self.rental_price_per_day}/day")     
+    elif(self.capacity == 0 and self.engine != ""):
+      print(f"{self.brand}: {self.model}, Year: {self.year}, Engine: {self.engine}, Rental Price: ${self.rental_price_per_day}/day")
+    elif(self.capacity != 0 and self.engine != ""):
+      print(f"{self.brand}: {self.model}, Year: {self.year}, Engine: {self.engine}, Seats: {self.capacity}, Rental Price: ${self.rental_price_per_day}/day")          
+  
+  def calculate_rental_cost(self, days):
+    cost = self.rental_price_per_day * days
+    print(f"Rental cost for {self.model} for {days} days: ${cost}")
 
 vehicle1 = Vehicle("Car", "Toyota Corolla", 2020, 50)
 vehicle2 = Vehicle("Bike", "Yamaha R1", 2019, 30)
+vehicle1.capacity = 5
+vehicle2.engine = "998cc"
 vehicle1.display_info()
 vehicle2.display_info()
 vehicle1.calculate_rental_cost(3)
