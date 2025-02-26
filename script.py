@@ -24,17 +24,62 @@ class Vehicle:
     print(f"Rental cost for {self.model} for {days} days: ${cost}")
 
 vehicles_list= []
+option = 0
 
-action = input("Create a new vehicle (yes/no): ").lower()
+while option != 5:
+  print("=" * 60)
+  print("Select an option: ")
+  print("1 ==> Vehicle without additional attributes")
+  print("2 ==> Vehicle with seats capacity")
+  print("3 ==> Vehicle with engine power")
+  print("4 ==> Vehicle with seats capacity and engine power")
+  print("5 ==> To exit the system")
 
-while action != "no":
-  brand = input("Enter the brand: ")
-  model = input("Enter the model: ")
-  year = int(input("Enter the year: "))
-  rental_price_per_day = float(input("Enter the rental price per day: "))
-  vehicle = Vehicle(brand, model, year, rental_price_per_day)
-  vehicles_list.append(vehicle)
-  action = input("Create a new vehicle (yes/no): ").lower()
+  option = int(input("Choice: "))
+
+  if option == 1:
+    brand = input("Enter the brand: ")
+    model = input("Enter the model: ")
+    year = int(input("Enter the year: "))
+    rental_price_per_day = float(input("Enter the rental price per day: "))
+    vehicle = Vehicle(brand, model, year, rental_price_per_day)
+    vehicles_list.append(vehicle)
+
+
+  elif option == 2:
+    brand = input("Enter the brand: ")
+    model = input("Enter the model: ")
+    year = int(input("Enter the year: "))
+    capacity = int(input("Enter the number of seats: "))
+    rental_price_per_day = float(input("Enter the rental price per day: "))
+    vehicle = Vehicle(brand, model, year, rental_price_per_day)
+    vehicle.capacity = capacity
+    vehicles_list.append(vehicle)
+
+
+  elif option == 3:
+    brand = input("Enter the brand: ")
+    model = input("Enter the model: ")
+    year = int(input("Enter the year: "))
+    engine = input("Enter the engine's power: ")
+    rental_price_per_day = float(input("Enter the rental price per day: "))
+    vehicle = Vehicle(brand, model, year, rental_price_per_day)
+    vehicle.engine = engine
+    vehicles_list.append(vehicle)
+
+
+  elif option == 4:
+    brand = input("Enter the brand: ")
+    model = input("Enter the model: ")
+    year = int(input("Enter the year: "))
+    capacity = int(input("Enter the number of seats: "))
+    engine = input("Enter the engine's power: ")
+    rental_price_per_day = float(input("Enter the rental price per day: "))
+    vehicle = Vehicle(brand, model, year, rental_price_per_day)
+    vehicle.capacity = capacity
+    vehicle.engine = engine
+    vehicles_list.append(vehicle)
+
 
 for vehicle in vehicles_list:
   vehicle.display_info()
