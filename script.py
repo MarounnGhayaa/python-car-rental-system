@@ -78,7 +78,7 @@ car_instance.days = 3
 bike_instance = Bike("Yamaha", "R1", 2019, 30.0, "998cc")
 bike_instance.days = 5
 
-vehicles_list= [car_instance, bike_instance]
+vehicles_list= []
 
 option = 0
 
@@ -112,10 +112,17 @@ while option != 4:
     for vehicle in vehicles_list:
       vehicle.calculate_rental_cost(vehicle.days)
 
-for vehicle in vehicles_list:
-  show_vehicle_info(vehicle)
+car_instance.display_info()
+bike_instance.display_info()
+print("")
 
-for vehicle in vehicles_list:
-  vehicle.calculate_rental_cost(vehicle.days)
+car_instance.calculate_rental_cost(car_instance.days)
+bike_instance.calculate_rental_cost(bike_instance.days)
+print("")
 
 car_instance.modify_rental_cost(55.0)
+print("=" * 80)
+
+for vehicle in vehicles_list:
+  show_vehicle_info(vehicle)
+  vehicle.calculate_rental_cost(vehicle.days)
