@@ -12,57 +12,68 @@ class Vehicle:
     self.days = days
 
   def display_info(self):
-    if self.capacity == 0 and self.engine == "":
-      print(f"{self.brand}: {self.model}, Year: {self.year}, Rental Price: ${self.rental_price_per_day}/day")
-    elif(self.capacity != 0 and self.engine == ""):
-      print(f"{self.brand}: {self.model}, Year: {self.year}, Seats: {self.capacity}, Rental Price: ${self.rental_price_per_day}/day")     
-    elif(self.capacity == 0 and self.engine != ""):
-      print(f"{self.brand}: {self.model}, Year: {self.year}, Engine: {self.engine}, Rental Price: ${self.rental_price_per_day}/day")
-    elif(self.capacity != 0 and self.engine != ""):
-      print(f"{self.brand}: {self.model}, Year: {self.year}, Engine: {self.engine}, Seats: {self.capacity}, Rental Price: ${self.rental_price_per_day}/day")          
+    if(self.capacity != 0):
+      print(f"Car: {self.brand} {self.model}, Year: {self.year}, Seats: {self.capacity}, Rental Price: ${self.rental_price_per_day}/day")     
+    elif(self.engine != ""):
+      print(f"Bike: {self.brand} {self.model}, Year: {self.year}, Engine: {self.engine}, Rental Price: ${self.rental_price_per_day}/day")
   
   def calculate_rental_cost(self, days):
     cost = self.rental_price_per_day * days
-    print(f"Rental cost for {self.model} for {days} days: ${cost}")
+    print(f"Rental cost for {self.brand} {self.model} for {days} days: ${cost}")
+class Car(Vehicle):
+  def __init__(self, brand, model, year, rental_price_per_day, seats):
+    super().__init__(brand, model, year, rental_price_per_day)
+    self.capacity = seats
 
-def set_attributes():
+  def display_info(self):
+        super().display_info()
+
+class Bike(Vehicle):
+  def __init__(self, brand, model, year, rental_price_per_day, engine):
+    super().__init__(brand, model, year, rental_price_per_day)
+    self.engine = engine
+
+  def display_info(self):
+        super().display_info()
+
+def car_attributes():
   brand = input("Enter the brand: ")
   model = input("Enter the model: ")
   year = int(input("Enter the year: "))
+  seats = int(input("Enter the number of seats: "))
   rental_price_per_day = float(input("Enter the rental price per day: "))
-  vehicle = Vehicle(brand, model, year, rental_price_per_day)
-  vehicle.days = int(input("Enter the number of rental days: "))
-  vehicles_list.append(vehicle)
-  return vehicle
+  car = Car(brand, model, year, rental_price_per_day, seats)
+  car.days = int(input("Enter the number of rental days: "))
+  vehicles_list.append(car)
+  return car
+
+def bike_attributes():
+  brand = input("Enter the brand: ")
+  model = input("Enter the model: ")
+  year = int(input("Enter the year: "))
+  capacity = input("Enter the engine capacity: ")
+  rental_price_per_day = float(input("Enter the rental price per day: "))
+  bike = Bike(brand, model, year, rental_price_per_day, capacity)
+  bike.days = int(input("Enter the number of rental days: "))
+  vehicles_list.append(bike)
+  return bike
 
 vehicles_list= []
 option = 0
 
-while option != 5:
+while option != 3:
   print("=" * 60)
-  print("Select an option: ")
-  print("1 ==> Vehicle without additional attributes")
-  print("2 ==> Vehicle with seats capacity")
-  print("3 ==> Vehicle with engine power")
-  print("4 ==> Vehicle with seats capacity and engine power")
-  print("5 ==> To exit the system")
+  print("Select a vehicle: ")
+  print("1 ==> Car")
+  print("2 ==> Bike")
+  print("3 ==> To exit the system")
   option = int(input("Choice: "))
 
   if option == 1:
-    vehicle = set_attributes()
+    car = car_attributes()
 
   elif option == 2:
-    vehicle = set_attributes()
-    vehicle.capacity = int(input("Enter the number of seats: "))
-
-  elif option == 3:
-    vehicle = set_attributes()
-    vehicle.engine = input("Enter the engine's power: ")
-
-  elif option == 4:
-    vehicle = set_attributes()
-    vehicle.capacity = int(input("Enter the number of seats: "))
-    vehicle.engine = input("Enter the engine's power: ")
+    bike = bike_attributes()
 
 for vehicle in vehicles_list:
   vehicle.display_info()
