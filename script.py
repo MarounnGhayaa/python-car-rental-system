@@ -37,7 +37,7 @@ class Car(Vehicle):
     self.capacity = seats
 
   def display_info(self):
-        super().display_info()
+    super().display_info()
 
 class Bike(Vehicle):
   def __init__(self, brand, model, year, rental_price_per_day, engine):
@@ -45,7 +45,7 @@ class Bike(Vehicle):
     self.engine = engine
 
   def display_info(self):
-        super().display_info()
+    super().display_info()
 
 def show_vehicle_info(vehicle):
   vehicle.display_info()
@@ -93,9 +93,17 @@ while option != 4:
 
   if option == 1:
     car = car_attributes()
+    answer = input(f"Do you want to modify you rental price[{car.get_rental_price_per_day()}]? (yes/no): ").lower()
+    if answer == "yes":
+      price = float(input("Enter the new rental price: "))
+      car.modify_rental_cost(price)
 
   elif option == 2:
     bike = bike_attributes()
+    answer = input(f"Do you want to modify you rental price[{bike.get_rental_price_per_day()}]? (yes/no): ").lower()
+    if answer == "yes":
+      price = float(input("Enter the new rental price: "))
+      bike.modify_rental_cost(price)
 
   elif option == 3:
     for vehicle in vehicles_list:
