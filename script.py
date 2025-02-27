@@ -70,7 +70,7 @@ car_instance.days = 3
 bike_instance = Bike("Yamaha", "R1", 2019, 30.0, "998cc")
 bike_instance.days = 5
 
-vehicles_list= []
+vehicles_list= [car_instance, bike_instance]
 
 option = 0
 
@@ -87,12 +87,6 @@ while option != 3:
 
   elif option == 2:
     bike = bike_attributes()
-
-car_instance.display_info()
-bike_instance.display_info()
-
-car_instance.calculate_rental_cost(car_instance.days)
-bike_instance.calculate_rental_cost(bike_instance.days)
 
 for vehicle in vehicles_list:
   show_vehicle_info(vehicle)
