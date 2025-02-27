@@ -74,12 +74,13 @@ vehicles_list= [car_instance, bike_instance]
 
 option = 0
 
-while option != 3:
+while option != 4:
   print("=" * 60)
   print("Select a vehicle: ")
   print("1 ==> Car")
   print("2 ==> Bike")
-  print("3 ==> To exit the system")
+  print("3 ==> To list existing data")
+  print("4 ==> To exit the system")
   option = int(input("Choice: "))
 
   if option == 1:
@@ -87,6 +88,13 @@ while option != 3:
 
   elif option == 2:
     bike = bike_attributes()
+
+  elif option == 3:
+    for vehicle in vehicles_list:
+      show_vehicle_info(vehicle)
+
+    for vehicle in vehicles_list:
+      vehicle.calculate_rental_cost(vehicle.days)
 
 for vehicle in vehicles_list:
   show_vehicle_info(vehicle)
