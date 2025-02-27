@@ -39,6 +39,9 @@ class Bike(Vehicle):
   def display_info(self):
         super().display_info()
 
+def show_vehicle_info(vehicle):
+  vehicle.display_info()
+
 def car_attributes():
   brand = input("Enter the brand: ")
   model = input("Enter the model: ")
@@ -79,7 +82,7 @@ while option != 3:
     bike = bike_attributes()
 
 for vehicle in vehicles_list:
-  vehicle.display_info()
+  show_vehicle_info(vehicle)
 
 for vehicle in vehicles_list:
   vehicle.calculate_rental_cost(vehicle.days)
