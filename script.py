@@ -27,6 +27,10 @@ class Vehicle:
   def calculate_rental_cost(self, days):
     cost = self.get_rental_price_per_day() * days
     print(f"Rental cost for {self.brand} {self.model} for {days} days: ${cost}")
+
+  def modify_rental_cost(self, new_price):
+    modified_price = self.set_rental_price_per_day(new_price)
+    print(f"Updated rental cost for {self.brand} {self.model}: ${modified_price}/day")
 class Car(Vehicle):
   def __init__(self, brand, model, year, rental_price_per_day, seats):
     super().__init__(brand, model, year, rental_price_per_day)
@@ -105,3 +109,5 @@ for vehicle in vehicles_list:
 
 for vehicle in vehicles_list:
   vehicle.calculate_rental_cost(vehicle.days)
+
+car_instance.modify_rental_cost(55.0)
