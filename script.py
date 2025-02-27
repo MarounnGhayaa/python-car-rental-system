@@ -64,7 +64,14 @@ def bike_attributes():
   vehicles_list.append(bike)
   return bike
 
+car_instance = Car("Toyota", "Corolla", 2020, 50.0, 5)
+car_instance.days = 3
+
+bike_instance = Bike("Yamaha", "R1", 2019, 30.0, "998cc")
+bike_instance.days = 5
+
 vehicles_list= []
+
 option = 0
 
 while option != 3:
