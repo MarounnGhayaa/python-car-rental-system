@@ -14,6 +14,10 @@ class Vehicle:
   def get_rental_price_per_day(self):
     return self.__rental_price_per_day
 
+  def set_rental_price_per_day(self, new_price):
+    self.__rental_price_per_day = new_price
+    return self.__rental_price_per_day
+
   def display_info(self):
     if(self.capacity != 0):
       print(f"Car: {self.brand} {self.model}, Year: {self.year}, Seats: {self.capacity}, Rental Price: ${self.get_rental_price_per_day()}/day")     
