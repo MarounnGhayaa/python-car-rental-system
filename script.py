@@ -88,6 +88,9 @@ while option != 3:
   elif option == 2:
     bike = bike_attributes()
 
+car_instance.display_info()
+bike_instance.display_info()
+
 for vehicle in vehicles_list:
   show_vehicle_info(vehicle)
 
