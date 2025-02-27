@@ -91,6 +91,9 @@ while option != 3:
 car_instance.display_info()
 bike_instance.display_info()
 
+car_instance.calculate_rental_cost(car_instance.days)
+bike_instance.calculate_rental_cost(bike_instance.days)
+
 for vehicle in vehicles_list:
   show_vehicle_info(vehicle)
 
