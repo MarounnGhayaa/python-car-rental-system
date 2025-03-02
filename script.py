@@ -53,7 +53,11 @@ def show_vehicle_info(vehicle):
 def car_attributes():
   brand = input("Enter the brand: ")
   model = input("Enter the model: ")
-  year = int(input("Enter the year: "))
+  
+  year = int(input("Enter the year (4-digit): "))
+  while year < 1000 or year > 9999:
+    print("Year must be a 4-digit positive number. Please try again.")
+    year = int(input("Enter the year (4-digit): "))
 
   seats = -1
   while seats <= 0:
@@ -81,7 +85,12 @@ def car_attributes():
 def bike_attributes():
   brand = input("Enter the brand: ")
   model = input("Enter the model: ")
-  year = int(input("Enter the year: "))
+
+  year = int(input("Enter the year (4-digit): "))
+  while year < 1000 or year > 9999:
+    print("Year must be a 4-digit positive number. Please try again.")
+    year = int(input("Enter the year (4-digit): "))
+
   capacity = input("Enter the engine capacity: ")
   
   rental_price_per_day = -1
