@@ -83,9 +83,21 @@ def bike_attributes():
   model = input("Enter the model: ")
   year = int(input("Enter the year: "))
   capacity = input("Enter the engine capacity: ")
-  rental_price_per_day = float(input("Enter the rental price per day: "))
+  
+  rental_price_per_day = -1
+  while rental_price_per_day <= 0:
+    rental_price_per_day = float(input("Enter the rental price per day (Positive price): "))
+    if rental_price_per_day < 0:
+      print("Price must be a positive number. Please try again.")
+  
   bike = Bike(brand, model, year, rental_price_per_day, capacity)
-  bike.days = int(input("Enter the number of rental days: "))
+  
+  bike.days = -1
+  while bike.days <= 0:
+    bike.days = int(input("Enter the number of days (Positive number): "))
+    if bike.days < 0:
+      print("Number of days must be a positive number. Please try again.")
+
   vehicles_list.append(bike)
   return bike
 
