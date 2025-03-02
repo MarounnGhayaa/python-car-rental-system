@@ -121,6 +121,8 @@ bike_instance.days = 5
 
 vehicles_list= []
 
+modifications = []
+
 option = 0
 
 while option != 4:
@@ -145,6 +147,7 @@ while option != 4:
     if answer == "yes":
       price = float(input("Enter the new rental price: "))
       bike.modify_rental_cost(price)
+      modifications.append(f"Updated rental cost for {bike.brand} {bike.model}: ${price}/day")
 
   elif option == 3:
     for vehicle in vehicles_list:
@@ -167,3 +170,8 @@ print("=" * 80)
 for vehicle in vehicles_list:
   show_vehicle_info(vehicle)
   vehicle.calculate_rental_cost(vehicle.days)
+
+print("")
+
+for modification in modifications:
+  print(modification)
