@@ -15,6 +15,9 @@ class Vehicle:
     return self.__rental_price_per_day
 
   def set_rental_price_per_day(self, new_price):
+    while new_price <= 0:
+        print("Invalid price! Rental price must be a positive number.")
+        new_price = float(input("Enter a valid rental price: "))
     self.__rental_price_per_day = new_price
     return self.__rental_price_per_day
 
