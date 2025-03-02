@@ -140,6 +140,7 @@ while option != 4:
     if answer == "yes":
       price = float(input("Enter the new rental price: "))
       car.modify_rental_cost(price)
+      modifications.append(f"Updated rental cost for {car.brand} {car.model}: ${price}/day")
 
   elif option == 2:
     bike = bike_attributes()
