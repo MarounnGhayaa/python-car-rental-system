@@ -54,10 +54,27 @@ def car_attributes():
   brand = input("Enter the brand: ")
   model = input("Enter the model: ")
   year = int(input("Enter the year: "))
-  seats = int(input("Enter the number of seats: "))
-  rental_price_per_day = float(input("Enter the rental price per day: "))
+
+  seats = -1
+  while seats <= 0:
+    seats = int(input("Enter the number of seats (Positive number): "))
+    if seats < 0:
+      print("Seats must be a positive number. Please try again.")
+
+  rental_price_per_day = -1
+  while rental_price_per_day <= 0:
+    rental_price_per_day = float(input("Enter the rental price per day (Positive price): "))
+    if rental_price_per_day < 0:
+      print("Price must be a positive number. Please try again.")
+
   car = Car(brand, model, year, rental_price_per_day, seats)
-  car.days = int(input("Enter the number of rental days: "))
+
+  car.days = -1
+  while car.days <= 0:
+    car.days = int(input("Enter the number of days (Positive number): "))
+    if car.days < 0:
+      print("Number of days must be a positive number. Please try again.")
+
   vehicles_list.append(car)
   return car
 
